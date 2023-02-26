@@ -46,8 +46,8 @@ async def _(client, message):
 
 # Dc Komutu İcin Olan Buttonlar
 def d_or_c(user_id):
-	BUTTON = [[InlineKeyboardButton(text="✅ Doğruluk", callback_data = " ".join(["d_data",str(user_id)]))]]
-	BUTTON += [[InlineKeyboardButton(text="🎲 Cesaret", callback_data = " ".join(["c_data",str(user_id)]))]]
+	BUTTON = [[InlineKeyboardButton(text="🌟 ᴅᴏɢ̆ʀᴜʟᴜᴋ", callback_data = " ".join(["d_data",str(user_id)]))]]
+	BUTTON += [[InlineKeyboardButton(text="🎲 ᴄᴇsᴀʀᴇᴛ", callback_data = " ".join(["c_data",str(user_id)]))]]
 	return InlineKeyboardMarkup(BUTTON)
 
 # Dc Komutunu Oluşturalım
@@ -55,7 +55,7 @@ def d_or_c(user_id):
 async def _(client, message):
 	user = message.from_user
 
-	await message.reply_text(text="{} kategori seç !".format(user.mention),
+	await message.reply_text(text="**{} kategori seç !**".format(user.mention),
 		reply_markup=d_or_c(user.id)
 		)
 
@@ -72,71 +72,27 @@ async def _(client, callback_query):
 	if str(user.id) == str(user_id):
 		# Kullanıcının Doğruluk Sorusu İstemiş İse Bu Kısım Calışır
 		if c_q_d == "d_data":
-			await callback_query.answer(text="✅ Doğruluk Sorusu İstediniz", show_alert=False) # İlk Ekranda Uyarı Olarak Gösterelim
+			await callback_query.answer(text="**🌟 Doğruluk Sorusu İstediniz**", show_alert=False) # İlk Ekranda Uyarı Olarak Gösterelim
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id) # Eski Mesajı Silelim
 
-			await callback_query.message.reply_text("**{user} Doğruluk Sorusu İstedi :\n\n{d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
+			await callback_query.message.reply_text("**{user}\nDoğruluk Sorusu İstedi .\n\n{d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
 			return
 
 		if c_q_d == "c_data":
-			await callback_query.answer(text="🎲 Cesaret Sorusu İstediniz", show_alert=False)
+			await callback_query.answer(text="**🎲 Cesaret Sorusu İstediniz**", show_alert=False)
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id)
-			await callback_query.message.reply_text("**{user} Cesaret Sorusu İstedi :\n\n{c_soru}**".format(user=user.mention, c_soru=c_soru))
+			await callback_query.message.reply_text("**{user}\nCesaret Sorusu İstedi .\n\n{c_soru}**".format(user=user.mention, c_soru=c_soru))
 			return
 
 
 	# Buttonumuza Tıklayan Kisi Komut Calıştıran Kişi Değil İse Uyarı Gösterelim
 	else:
-		await callback_query.answer(text="Komutu Kullanan Kişi Sen Değilsin!", show_alert=False)
+		await callback_query.answer(text="Komutu Kullanan Kişi Sen Değilsin !", show_alert=False)
 		return
 
-############################
-    # Sudo islemleri #
-@K_G.on_message(filters.command("cekle"))
-async def _(client, message):
-  global MOD
-  user = message.from_user
-  
-  if user.id not in OWNER_ID:
-    await message.reply_text("**[?]** **Sen Yetkili Birisi degilsin!!**")
-    return
-  MOD="cekle"
-  await message.reply_text("**[?]** **Eklenmesini istedigin Cesaret Sorunu Giriniz!**")
-  
-@K_G.on_message(filters.command("dekle"))
-async def _(client, message):
-  global MOD
-  user = message.from_user
-  
-  if user.id not in OWNER_ID:
-    await message.reply_text("**[?]** **Sen Yetkili Birisi degilsin!!**")
-    return
-  MOD="cekle"
-  await message.reply_text("**[?]** **Eklenmesini istedigin Dogruluk Sorunu Giriniz!**")
-
-@K_G.on_message(filters.private)
-async def _(client, message):
-  global MOD
-  global C_SORU
-  global D_SORU
-  
-  user = message.from_user
-  
-  if user.id in OWNER_ID:
-    if MOD=="cekle":
-      C_SORU.append(str(message.text))
-      MOD=None
-      await message.reply_text("**[?]** __Metin Cesaret Sorusu Olarak Eklendi!__")
-      return
-    if MOD=="dekle":
-      C_SORU.append(str(message.text))
-      MOD=None
-      await message.reply_text("**[?]** __Metin Dogruluk Sorusu Olarak Eklendi!__")
-      return
-############################
 
 K_G.run() # Botumuzu Calıştıralım :)
