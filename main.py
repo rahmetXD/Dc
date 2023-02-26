@@ -33,11 +33,11 @@ def button():
 	return InlineKeyboardMarkup(BUTTON)
 
 # Kullanıcı Start Komutunu Kullanınca Selam'layalım :)
-@K_G.on_message(filters.command("start"))
+@K_G.on_message(filters.command("nsjsjs"))
 async def _(client, message):
 	user = message.from_user # Kullanıcın Kimliğini Alalım
 
-	await message.reply_text(text="**Merhaba {}!**\n\n__Ben Pyrogram Api İle Yazılmış Eğlence Botuyum :)__\n\n**Sohbet Grubu =>** [ Bas buraya  ](https://t.me/sohbetimalfa)\nDoğruluk mu? Cesaret mi? Oyun Komutu => /dc".format(
+	await message.reply_text(text="**Merhaba {}!**".format(
 		user.mention, # Kullanıcı'nın Adı
 		),
 	disable_web_page_preview=True, # Etiketin Önizlemesi Olmaması İcin Kullanıyoruz
@@ -46,8 +46,8 @@ async def _(client, message):
 
 # Dc Komutu İcin Olan Buttonlar
 def d_or_c(user_id):
-	BUTTON = [[InlineKeyboardButton(text="? Doğruluk", callback_data = " ".join(["d_data",str(user_id)]))]]
-	BUTTON += [[InlineKeyboardButton(text="?? Cesaret", callback_data = " ".join(["c_data",str(user_id)]))]]
+	BUTTON = [[InlineKeyboardButton(text="✅ Doğruluk", callback_data = " ".join(["d_data",str(user_id)]))]]
+	BUTTON += [[InlineKeyboardButton(text="🎲 Cesaret", callback_data = " ".join(["c_data",str(user_id)]))]]
 	return InlineKeyboardMarkup(BUTTON)
 
 # Dc Komutunu Oluşturalım
@@ -55,7 +55,7 @@ def d_or_c(user_id):
 async def _(client, message):
 	user = message.from_user
 
-	await message.reply_text(text="{} İstediğin Soru Tipini Seç!".format(user.mention),
+	await message.reply_text(text="{} kategori seç !".format(user.mention),
 		reply_markup=d_or_c(user.id)
 		)
 
@@ -72,26 +72,26 @@ async def _(client, callback_query):
 	if str(user.id) == str(user_id):
 		# Kullanıcının Doğruluk Sorusu İstemiş İse Bu Kısım Calışır
 		if c_q_d == "d_data":
-			await callback_query.answer(text="Doğruluk Sorusu İstediniz", show_alert=False) # İlk Ekranda Uyarı Olarak Gösterelim
+			await callback_query.answer(text="✅ Doğruluk Sorusu İstediniz", show_alert=False) # İlk Ekranda Uyarı Olarak Gösterelim
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id) # Eski Mesajı Silelim
 
-			await callback_query.message.reply_text("**{user} Doğruluk Sorusu İstedi:** __{d_soru}__".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
+			await callback_query.message.reply_text("**{user} Doğruluk Sorusu İstedi :\n\n{d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
 			return
 
 		if c_q_d == "c_data":
-			await callback_query.answer(text="Cesaret Sorusu İstediniz", show_alert=False)
+			await callback_query.answer(text="🎲 Cesaret Sorusu İstediniz", show_alert=False)
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id)
-			await callback_query.message.reply_text("**{user} Cesaret Sorusu İstedi:** __{c_soru}__".format(user=user.mention, c_soru=c_soru))
+			await callback_query.message.reply_text("**{user} Cesaret Sorusu İstedi :\n\n{c_soru}**".format(user=user.mention, c_soru=c_soru))
 			return
 
 
 	# Buttonumuza Tıklayan Kisi Komut Calıştıran Kişi Değil İse Uyarı Gösterelim
 	else:
-		await callback_query.answer(text="Komutu Kullanan Kişi Sen Değilsin!!", show_alert=False)
+		await callback_query.answer(text="Komutu Kullanan Kişi Sen Değilsin!", show_alert=False)
 		return
 
 ############################
