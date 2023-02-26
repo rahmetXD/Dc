@@ -94,5 +94,37 @@ async def _(client, callback_query):
 		await callback_query.answer(text="Komutu Kullanan Kişi Sen Değilsin !", show_alert=False)
 		return
 
+############
+@K_G.on_message(filters.command("d"))
+async def _(client, message):
+        d_soru=random.choice(D_SORU)
+        user = callback_query.from_user
+
+        if str(user.id) == str(user_id):
+
+                if c_q_d == "d_data":
+			await callback_query.answer(text="**🌟 Doğruluk Sorusu İstediniz**", show_alert=False) # İlk Ekranda Uyarı Olarak Gösterelim
+			await client.delete_messages(
+				chat_id=callback_query.message.chat.id,
+				message_ids=callback_query.message.id) # Eski Mesajı Silelim
+
+			await callback_query.message.reply_text("**{user}\nDoğruluk Sorusu İstedi .\n\n💬 {d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
+			return
+
+@K_G.on_message(filters.command("c"))
+async def _(client, message):
+        c_soru=random.choice(C_SORU)
+        user = callback_query.from_user
+
+        if str(user.id) == str(user_id):
+
+                if c_q_d == "c_data":
+			await callback_query.answer(text="**🎲 Cesaret Sorusu İstediniz**", show_alert=False)
+			await client.delete_messages(
+				chat_id=callback_query.message.chat.id,
+				message_ids=callback_query.message.id)
+			await callback_query.message.reply_text("**{user}\nCesaret Sorusu İstedi .\n\n💬 {c_soru}**".format(user=user.mention, c_soru=c_soru))
+			return
+
 
 K_G.run() # Botumuzu Calıştıralım :)
