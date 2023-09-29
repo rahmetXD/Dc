@@ -36,8 +36,8 @@ async def _(client, message):
 	await message.reply_text(text="**👋🏻 Merhaba {}\n\n♻️ Doğruluk ve Cesaret Oyun Bot'uyum .\n\n• Komut •> /dc **".format(
 		user.mention,
 		),
-	disable_web_page_preview=True, # Etiketin Önizlemesi Olmaması İcin Kullanıyoruz
-	reply_markup=button() # Buttonlarımızı Ekleyelim
+	disable_web_page_preview=True,
+	reply_markup=button()
 	)
 
 # DC KOMUTU İCİN BUTTONLAR
