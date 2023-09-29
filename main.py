@@ -7,11 +7,11 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # ============================ #
 
-B_TOKEN = os.getenv("BOT_TOKEN", "5053455434:AAEibKtLj04OuiVL5dvlYBmwidlM1M8QiCY") # Kullanıcı'nın Bot Tokeni
+B_TOKEN = os.getenv("BOT_TOKEN", "6581228589:AAFjFSumGcr9ER6oMUs4TNioyAsjNzydhHI") # Kullanıcı'nın Bot Tokeni
 API_ID = os.getenv("OWNER_API_ID", "24092943") # Kullanıcı'nın Apı Id'si
 API_HASH = os.getenv("OWNER_API_HASH", "5e8dd78f2592f39e139e3d803db522c4") # Kullanıcı'nın Apı Hash'ı
-OWNER_ID = os.getenv("OWNER_ID", "5533927130").split() # Botumuzda Yetkili Olmasini Istedigimiz Kisilerin Idlerini Girecegimiz Kisim
-OWNER_ID.append(5237976814)
+OWNER_ID = os.getenv("OWNER_ID", "6181368568").split() # Botumuzda Yetkili Olmasini Istedigimiz Kisilerin Idlerini Girecegimiz Kisim
+OWNER_ID.append(6181368568)
 
 MOD = None
 
@@ -28,8 +28,8 @@ K_G = Client(
 
 # Start Buttonu İcin Def Oluşturalım :)
 def button():
-	BUTTON=[[InlineKeyboardButton(text="Sahibim ",url="t.me/Samilben")]]
-	BUTTON+=[[InlineKeyboardButton(text="Müzik Botu",url="https://t.me/Oxygenmuzik_Bot")]]
+	BUTTON=[[InlineKeyboardButton(text="Sahibim ",url="t.me/xxx")]]
+	BUTTON+=[[InlineKeyboardButton(text="Müzik Botu",url="https://t.me/Ooo")]]
 	return InlineKeyboardMarkup(BUTTON)
 
 # Kullanıcı Start Komutunu Kullanınca Selam'layalım :)
