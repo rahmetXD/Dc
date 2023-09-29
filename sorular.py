@@ -111,5 +111,5 @@ D_SORU = [
 	"Utanç verici kokularınızın çoğu nereden geliyor?","Hiç sevgilini anlatmayı düşündün mü?","Hiç sevgilini biriyle aldattın mı?","Boxer mı yoksa külot mu?","Hiç havuza veya denize işedin mi?","Saçlarını uzatmayı düşünsen ne kadar uzatırdın?","Kimsenin bilmeyeceği garanti olsa kimi öldürmek isterdin?","Başkası için aldığın en ucuz hediye nedir?",
 	"Zamanının çoğunu en çok hangi uygulamada harcıyorsun?","Otobüste yaptığın en tuhaf şey nedir?","Hiç toplum içinde çıplak kaldın mı?","Günde ne kadar dedikodu yaparsın?","Çıkmak isteyeceğin en genç kişi kaç yaşında olurdu?","Hiç toplum içindeyken burnunu karıştırdın mı?",
 	"Hiç yaşın hakkında yalan söyledin mi?","Telefonundan bir uygulamayı silmek zorunda olsan bu hangisi olurdu?",
-	"Gece geç saatte yaptığın en utanç verici şey nedir?","Duş almadan en uzun süre ne kadar durdun?","Hiç sahte kimlik kullandın mı?","Kırmızı halıda beraber yürümek istediğin ünlü isim kim?","Gizli aşkın kim?"
+	"Gece geç saatte yaptığın en utanç verici şey nedir?","Duş almadan en uzun süre ne kadar durdun ?","Hiç sahte kimlik kullandın mı?","Kırmızı halıda beraber yürümek istediğin ünlü isim kim?","Gizli aşkın kim?"
 ]
