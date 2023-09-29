@@ -25,7 +25,6 @@ K_G = Client(
 # START KOMUT BUTONLARI
 def button():
 	BUTTON=[[InlineKeyboardButton(text="➕ 𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾 ➕",url="https://t.me/EpikTestBot?startgroup=a")]]
-        BUTTON+=[[InlineKeyboardButton(text="⚙️ 𝖪𝖺𝗇𝖺𝗅",url="https://t.me/EpikDuyuru")]]
 	BUTTON+=[[InlineKeyboardButton(text="👤 𝖮𝗐𝗇𝖾𝗋",url="https://t.me/EpikOwner")]]
 	return InlineKeyboardMarkup(BUTTON)
 
