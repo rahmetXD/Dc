@@ -1,20 +1,15 @@
-# Gerekli Kurulumlar
 import os
 import logging
 import random
 from sorular import D_SORU, C_SORU
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-# ============================ #
 
 API_ID = os.getenv("OWNER_API_ID", "24092943") # KARIŞMAYIN
 API_HASH = os.getenv("OWNER_API_HASH", "5e8dd78f2592f39e139e3d803db522c4") # KARIŞMAYIN
 B_TOKEN = os.getenv("BOT_TOKEN", "6581228589:AAFjFSumGcr9ER6oMUs4TNioyAsjNzydhHI") # BOT TOKENİ GİRİN
 OWNER_ID = os.getenv("OWNER_ID", "6181368568").split() # BOT SAHİP İD'Sİ GİRİN .
-OWNER_ID.append(6181368568) # BOT SAHİP İD'Sİ GİRİN .
-BOT_OWNER = os.getenv("BOT_OWNER", "EpikOwner") # BOT SAHİP KULLANICI ADI GİRİN .
-BOT_USERNAME = os.getenv("BOT_USERNAME", "EpikTestBot") # BOT KULLANICI ADI GİRİN .
-BOT_SUPPORT = os.getenv("BOT_SUPPORT", "EpikDestek") # BOT DESTEK GRUP KULLANICI ADI GİRİN .
+OWNER_ID.append(6181368568) # BOT SAHİP İD'Sİ GİRİN . 
 
 MOD = None
 
@@ -27,11 +22,11 @@ K_G = Client(
 	api_hash=API_HASH
 	)
 
-# STAR KOMUT BUTONLARI
+# START KOMUT BUTONLARI
 def button():
-	BUTTON=[[InlineKeyboardButton(text="➕ 𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾 ➕",url=f"https://t.me/{BOT_USERNAME}?startgroup=a")]]
-        BUTTON+=[[InlineKeyboardButton(text="⚙️ 𝖪𝖺𝗇𝖺𝗅",url=f"https://t.me/{BOT_SUPPORT}")]]
-	BUTTON+=[[InlineKeyboardButton(text="👤 𝖮𝗐𝗇𝖾𝗋",url=f"https://t.me/{BOT_OWNER}")]]
+	BUTTON=[[InlineKeyboardButton(text="➕ 𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾 ➕",url="https://t.me/EpikTestBot?startgroup=a")]]
+        BUTTON+=[[InlineKeyboardButton(text="⚙️ 𝖪𝖺𝗇𝖺𝗅",url="https://t.me/EpikDuyuru")]]
+	BUTTON+=[[InlineKeyboardButton(text="👤 𝖮𝗐𝗇𝖾𝗋",url="https://t.me/EpikOwner")]]
 	return InlineKeyboardMarkup(BUTTON)
 
 # START KOMUTU
