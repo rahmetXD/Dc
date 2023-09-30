@@ -7,9 +7,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 API_ID = os.getenv("OWNER_API_ID", "24092943") # KARIŞMAYIN
 API_HASH = os.getenv("OWNER_API_HASH", "5e8dd78f2592f39e139e3d803db522c4") # KARIŞMAYIN
-B_TOKEN = os.getenv("BOT_TOKEN", "6581228589:AAFjFSumGcr9ER6oMUs4TNioyAsjNzydhHI") # BOT TOKENİ GİRİN
-OWNER_ID = os.getenv("OWNER_ID", "6181368568").split() # BOT SAHİP İD'Sİ GİRİN .
-OWNER_ID.append(6181368568) # BOT SAHİP İD'Sİ GİRİN . 
+B_TOKEN = os.getenv("BOT_TOKEN", "") # BOT TOKENİ GİRİN
+OWNER_ID = os.getenv("OWNER_ID", "").split() # BOT SAHİP İD'Sİ GİRİN .
+OWNER_ID.append() # BOT SAHİP İD'Sİ GİRİN . 
 
 MOD = None
 
