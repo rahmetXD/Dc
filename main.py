@@ -7,9 +7,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 API_ID = os.getenv("OWNER_API_ID", "24092943") # KARIŞMAYIN
 API_HASH = os.getenv("OWNER_API_HASH", "5e8dd78f2592f39e139e3d803db522c4") # KARIŞMAYIN
-B_TOKEN = os.getenv("BOT_TOKEN", "") # BOT TOKENİ GİRİN
-OWNER_ID = os.getenv("OWNER_ID", "").split() # BOT SAHİP İD'Sİ GİRİN .
-OWNER_ID.append() # BOT SAHİP İD'Sİ GİRİN . 
+B_TOKEN = os.getenv("BOT_TOKEN", "5846861684:AAHozvcdfromGO4M_BWj6TW0nPZPJopYpuU") # BOT TOKENİ GİRİN
+OWNER_ID = os.getenv("OWNER_ID", "5944841427").split() # BOT SAHİP İD'Sİ GİRİN .
+OWNER_ID.append(5944841427) # BOT SAHİP İD'Sİ GİRİN . 
 
 MOD = None
 
@@ -24,8 +24,8 @@ K_G = Client(
 
 # START KOMUT BUTONLARI
 def button():
-	BUTTON=[[InlineKeyboardButton(text="➕ 𝖡𝖾𝗇𝗂 𝖦𝗋𝗎𝖻𝖺 𝖤𝗄𝗅𝖾 ➕",url="https://t.me/EpikTestBot?startgroup=a")]]
-	BUTTON+=[[InlineKeyboardButton(text="👤 𝖮𝗐𝗇𝖾𝗋",url="https://t.me/EpikOwner")]]
+	BUTTON=[[InlineKeyboardButton(text="➕ Beni Gruba Ekle ➕",url="https://t.me/EpikTestBot?startgroup=a")]]
+	BUTTON+=[[InlineKeyboardButton(text="🪄 Developers 🪄",url="https://t.me/EpikOwner")]]
 	return InlineKeyboardMarkup(BUTTON)
 
 # START KOMUTU
@@ -33,7 +33,7 @@ def button():
 async def _(client, message):
 	user = message.from_user
 
-	await message.reply_text(text="**👋🏻 Merhaba {}\n\n♻️ Doğruluk ve Cesaret Oyun Bot'uyum .\n\n• Komut •> /dc **".format(
+	await message.reply_text(text="👋🏻 Merhaba {}\n\n♻️ Ben Ahri, Doğruluk ve Cesaret Oyun Bot'uyum.\n\n Komut -> /dc ".format(
 		user.mention,
 		),
 	disable_web_page_preview=True,
@@ -51,7 +51,7 @@ def d_or_c(user_id):
 async def _(client, message):
 	user = message.from_user
 
-	await message.reply_text(text="**{}\n👻 Dostum, bir seçim yap .\n\n📕 Doğruluk Mu ?\n📓 Cesaret Mi ?**".format(user.mention),
+	await message.reply_text(text="{}\n👻 Dostum, bir seçim yap!\n\n📕 Doğruluk Mu?\n📓 Cesaret Mi?".format(user.mention),
 		reply_markup=d_or_c(user.id)
 		)
 
@@ -72,15 +72,15 @@ async def _(client, callback_query):
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id)
 
-			await callback_query.message.reply_text("**{user}\n📕 Doğruluk Seçtin, Çok Güzel .\n\n💬 Sorum Şu: {d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
+			await callback_query.message.reply_text("**{user}\n📕 Doğruluk Seçtin, Çok Güzel.\n\n💬 Sorum Şu: {d_soru}**".format(user=user.mention, d_soru=d_soru)) # Sonra Kullanıcıyı Etiketleyerek Sorusunu Gönderelim
 			return
                 # CESARET SORUSU
 		if c_q_d == "c_data":
-			await callback_query.answer(text="📓 Cesaret Sorusu İstedin .", show_alert=False)
+			await callback_query.answer(text="📓 Cesaret Sorusu İstedin.", show_alert=False)
 			await client.delete_messages(
 				chat_id=callback_query.message.chat.id,
 				message_ids=callback_query.message.id)
-			await callback_query.message.reply_text("**{user}\n📓 Cesaret Seçtin, Sanırım Fazla Cesaretlisin .\n\n💬 Yapman Gereken şu: {c_soru}**".format(user=user.mention, c_soru=c_soru))
+			await callback_query.message.reply_text("**{user}\n📓 Cesaret Seçtin, Sanırım Fazla Cesaretlisin.\n\n💬 Yapman Gereken şu: {c_soru}**".format(user=user.mention, c_soru=c_soru))
 			return
 
 
